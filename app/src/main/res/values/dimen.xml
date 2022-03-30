@@ -2,9 +2,10 @@
 <resources>
     <dimen name="common_spacing">16dp</dimen>
     <dimen name="common_spacing_half">8dp</dimen>
-    <dimen name="text_size_default">12sp</dimen>
-    <dimen name="text_size_date">11sp</dimen>
-    <dimen name="text_size_label">14sp</dimen>
+    <dimen name="element_spacing">4dp</dimen>
+    <dimen name="text_size_default">14sp</dimen>
+    <dimen name="text_size_date">12sp</dimen>
+    <dimen name="text_size_label">15sp</dimen>
     <dimen name="card_radius">0dp</dimen>
     <dimen name="product_preview_size">60dp</dimen>
     <dimen name="max_title_size">220dp</dimen>

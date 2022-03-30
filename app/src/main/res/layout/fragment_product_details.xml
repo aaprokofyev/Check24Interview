@@ -55,14 +55,14 @@
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/productName"
                 app:layout_constraintTop_toBottomOf="@id/productName"
-                tools:text="Preis:" />
+                tools:text="Preis: " />
 
             <TextView
                 android:id="@+id/priceValue"
                 style="@style/moneyText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
+                android:layout_marginStart="@dimen/element_spacing"
                 android:text="@{viewModel.product.price}"
                 app:layout_constraintBottom_toBottomOf="@id/priceLabel"
                 app:layout_constraintStart_toEndOf="@id/priceLabel"
@@ -73,7 +73,6 @@
                 style="@style/dateText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
                 android:text="@{viewModel.product.releaseDate}"
                 app:layout_constraintBottom_toBottomOf="@id/productImage"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -125,6 +124,15 @@
                 app:layout_constraintTop_toBottomOf="@id/addToFavorites"
                 tools:text="@string/loren_ipsum" />
 
+            <TextView
+                style="@style/descriptionText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/common_spacing"
+                android:layout_marginTop="@dimen/common_spacing"
+                android:text="@string/footer_text"
+                android:textAlignment="center"
+                app:layout_constraintTop_toBottomOf="@id/productLongDescription" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

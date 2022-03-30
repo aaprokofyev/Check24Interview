@@ -62,6 +62,7 @@ dependencies {
     implementation presentationDependencies.retrofitGsonConverter
     implementation presentationDependencies.okhttpLoggingInterceptor
     implementation presentationDependencies.glide
+    implementation presentationDependencies.swipeRefreshLayout
 
     kapt presentationDependencies.glideCompiler
     kapt presentationDependencies.daggerCompiler

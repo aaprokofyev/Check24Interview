@@ -54,6 +54,14 @@ class ProductListFragment : BaseFragment(), Injectable {
                 verticalMarginRes = R.dimen.common_spacing_half
             )
         )
+
+        binding.swipeRefresh.setOnRefreshListener {
+            viewModel.loadProducts()
+        }
+
+        viewModel.refreshing.observe(viewLifecycleOwner) {
+            binding.swipeRefresh.isRefreshing = it
+        }
         return binding.root
     }
 

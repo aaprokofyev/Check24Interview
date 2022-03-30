@@ -19,17 +19,24 @@ class ProductListViewModel @Inject constructor(
     val loadError: LiveData<Boolean>
         get() = _loadError
 
+    private val _refreshing = MutableLiveData(false)
+    val refreshing: LiveData<Boolean>
+        get() = _refreshing
+
     init {
-        getProducts()
+        loadProducts()
     }
 
-    fun getProducts() {
+    fun loadProducts() {
         viewModelScope.launch {
             try {
+                _refreshing.value = true
                 _products.value = getProductList.execute(Unit)
                 _loadError.value = false
             } catch (ex: Exception) {
                 _loadError.value = true //smth goes wrong (:
+            } finally {
+                _refreshing.value = false
             }
         }
     }
