@@ -63,7 +63,7 @@ class NetworkModule {
     ) = Retrofit.Builder()
         .client(client)
         .addConverterFactory(gsonConverterFactory)
-        .baseUrl("http://localhost/")
+        .baseUrl("https://app.check24.de/")
         .build()
 
 

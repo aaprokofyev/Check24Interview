@@ -7,5 +7,18 @@
         android:id="@+id/productListFragment"
         android:name="de.check24.devtest.ui.productlist.ProductListFragment"
         android:label="@string/product_list">
+        <action
+            android:id="@+id/viewProductDetails"
+            app:destination="@id/productDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="de.check24.devtest.ui.productdetails.ProductDetailsFragment"
+        android:label="@string/product_details">
+        <argument
+            android:name="productId"
+            android:defaultValue=""
+            app:argType="string" />
     </fragment>
 </navigation>

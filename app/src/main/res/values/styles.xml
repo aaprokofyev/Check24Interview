@@ -14,4 +14,19 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="descriptionText">
+        <item name="android:textSize">@dimen/text_size_default</item>
+        <item name="android:textColor">@color/darkGrey</item>
+    </style>
+
+    <style name="dateText">
+        <item name="android:textSize">@dimen/text_size_date</item>
+        <item name="android:textColor">@color/darkGrey</item>
+    </style>
+
+    <style name="moneyText">
+        <item name="android:textSize">@dimen/text_size_label</item>
+        <item name="android:textColor">@color/darkGrey</item>
+    </style>
+
 </resources>

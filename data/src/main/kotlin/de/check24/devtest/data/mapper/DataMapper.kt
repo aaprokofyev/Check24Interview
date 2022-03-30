@@ -7,6 +7,7 @@ fun ProductResponse.toProductList() =
     listOf(
         Product(
             id = id,
-            name = name
+            name = name,
+            description = description
         )
     )

@@ -7,4 +7,8 @@ data class ProductResponse(
     val id: Long,
     @SerializedName("name")
     val name: String,
+    @SerializedName("description")
+    val description: String,
+
+    //TODO: Still dummy
 )

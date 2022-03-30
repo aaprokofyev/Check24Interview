@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="product"
             type="de.check24.devtest.domain.model.Product" />
@@ -18,30 +19,83 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal">
+            android:layout_gravity="center_horizontal"
+            android:padding="@dimen/common_spacing">
 
             <ImageView
                 android:id="@+id/productImage"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="@dimen/product_preview_size"
+                android:layout_height="@dimen/product_preview_size"
                 android:background="@color/lightGreyBackground"
                 android:contentDescription="@string/product_image_content_description"
-                tools:src="@android:drawable/ic_menu_edit"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/product_image_blank" />
 
             <TextView
-                android:id="@+id/productNameLabel"
+                android:id="@+id/productName"
                 style="@style/labelText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/common_spacing"
                 android:ellipsize="end"
+                android:maxWidth="@dimen/max_title_size"
+                android:maxLines="1"
                 android:text="@{product.name}"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toEndOf="@id/productImage"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:text="Product name" />
+
+            <TextView
+                android:id="@+id/productDescription"
+                style="@style/descriptionText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{product.description}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/productName"
+                app:layout_constraintTop_toBottomOf="@id/productName"
+                tools:text="@string/loren_ipsum" />
+
+            <TextView
+                android:id="@+id/priceLabel"
+                style="@style/moneyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{product.description}"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/productName"
+                app:layout_constraintTop_toBottomOf="@id/productDescription"
+                tools:text="Preis:" />
+
+
+            <TextView
+                android:id="@+id/priceValue"
+                style="@style/moneyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:text="@{product.description}"
+                app:layout_constraintBottom_toBottomOf="@id/priceLabel"
+                app:layout_constraintStart_toEndOf="@id/priceLabel"
+                tools:text="39.99 Eur" />
+
+
+            <TextView
+                android:id="@+id/releaseDate"
+                style="@style/dateText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:text="@{product.description}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="31.12.2015" />
+
+            <!--TODO add star rating with include/merge-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
