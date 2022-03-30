@@ -95,6 +95,19 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="31.12.2015" />
 
+            <RatingBar
+                android:id="@+id/ratingBar"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:rating="@{product.rating}"
+                android:stepSize="0.5"
+                android:theme="@style/ratingBarStyle"
+                app:layout_constraintBottom_toBottomOf="@id/priceValue"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:rating="3.5" />
+
             <!--TODO add star rating with include/merge-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>

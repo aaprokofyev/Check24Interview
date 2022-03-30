@@ -7,4 +7,5 @@
     <color name="lightGreyBackground">#EDEDED</color>
     <color name="dirtyWhiteBackground">#F6F6F6</color>
     <color name="defaultTextColor">#808080</color>
+    <color name="yellow">#FFEB3B</color>
 </resources>

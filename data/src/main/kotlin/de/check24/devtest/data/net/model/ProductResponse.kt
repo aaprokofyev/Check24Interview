@@ -24,6 +24,8 @@ data class ProductData(
     val imageUrl: String,
     @SerializedName("longDescription")
     val longDescription: String,
+    @SerializedName("rating")
+    val rating: Float,
 )
 
 data class PriceData(

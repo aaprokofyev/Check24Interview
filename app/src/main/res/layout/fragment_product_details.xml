@@ -26,8 +26,9 @@
                 android:layout_height="@dimen/product_preview_size"
                 android:background="@color/lightGreyBackground"
                 android:contentDescription="@string/product_image_content_description"
+                app:layout_constraintBottom_toBottomOf="@id/ratingBar"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toTopOf="@id/productName"
                 app:photoUrl="@{viewModel.product.imageUrl}"
                 app:placeholder="@{@drawable/product_image_blank}"
                 tools:src="@drawable/product_image_blank" />
@@ -51,6 +52,7 @@
                 style="@style/moneyText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/element_spacing"
                 android:text="@string/price_label"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/productName"
@@ -78,7 +80,19 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 tools:text="31.12.2015" />
 
-            <!--TODO add stars rating-->
+            <RatingBar
+                android:id="@+id/ratingBar"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/element_spacing"
+                android:numStars="5"
+                android:rating="@{viewModel.product.rating}"
+                android:stepSize="0.5"
+                android:theme="@style/ratingBarStyle"
+                app:layout_constraintStart_toStartOf="@id/priceLabel"
+                app:layout_constraintTop_toBottomOf="@id/priceValue"
+                tools:rating="3.5" />
 
 
             <androidx.constraintlayout.widget.Barrier
@@ -86,7 +100,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:barrierDirection="bottom"
-                app:constraint_referenced_ids="productImage,priceLabel" />
+                app:constraint_referenced_ids="productImage,ratingBar" />
 
             <TextView
                 android:id="@+id/productDescription"

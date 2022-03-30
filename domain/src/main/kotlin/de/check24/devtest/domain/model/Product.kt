@@ -13,4 +13,5 @@ data class Product(
     val available: Boolean,
     val imageUrl: String,
     val longDescription: String,
+    val rating: Float,
 ) : Parcelable
