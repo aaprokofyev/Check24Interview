@@ -31,6 +31,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:photoUrl="@{product.imageUrl}"
+                app:placeholder="@{@drawable/product_image_blank}"
                 tools:src="@drawable/product_image_blank" />
 
             <TextView
@@ -65,12 +67,11 @@
                 style="@style/moneyText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{product.description}"
+                android:text="@string/price_label"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/productName"
                 app:layout_constraintTop_toBottomOf="@id/productDescription"
                 tools:text="Preis:" />
-
 
             <TextView
                 android:id="@+id/priceValue"
@@ -78,7 +79,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
-                android:text="@{product.description}"
+                android:text="@{product.price}"
                 app:layout_constraintBottom_toBottomOf="@id/priceLabel"
                 app:layout_constraintStart_toEndOf="@id/priceLabel"
                 tools:text="39.99 Eur" />
@@ -90,7 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
-                android:text="@{product.description}"
+                android:text="@{product.releaseDate}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="31.12.2015" />
