@@ -16,7 +16,8 @@ fun ProductData.toProduct() =
         price = price.value + " " + price.currency, //Simplified, better to format this on presentation layer
         releaseDate = dateFormatter.format(Date(releaseDate * 1000L)), //Simplified, better to format this on presentation layer
         available = available,
-        imageUrl = imageUrl
+        imageUrl = imageUrl,
+        longDescription = longDescription,
     )
 
 val dateFormatter = SimpleDateFormat("dd.MM.yyyy", Locale.GERMANY)

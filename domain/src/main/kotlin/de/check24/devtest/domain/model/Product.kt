@@ -1,5 +1,9 @@
 package de.check24.devtest.domain.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Product(
     val id: Long,
     val name: String,
@@ -7,5 +11,6 @@ data class Product(
     val price: String,
     val releaseDate: String,
     val available: Boolean,
-    val imageUrl: String
-)
+    val imageUrl: String,
+    val longDescription: String,
+) : Parcelable

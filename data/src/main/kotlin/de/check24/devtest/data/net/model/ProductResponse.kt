@@ -22,6 +22,8 @@ data class ProductData(
     val available: Boolean,
     @SerializedName("imageURL")
     val imageUrl: String,
+    @SerializedName("longDescription")
+    val longDescription: String,
 )
 
 data class PriceData(

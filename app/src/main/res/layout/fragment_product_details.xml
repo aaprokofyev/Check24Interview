@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -8,9 +10,122 @@
             type="de.check24.devtest.ui.productdetails.ProductDetailsViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/common_spacing">
+
+
+            <ImageView
+                android:id="@+id/productImage"
+                android:layout_width="@dimen/product_preview_size"
+                android:layout_height="@dimen/product_preview_size"
+                android:background="@color/lightGreyBackground"
+                android:contentDescription="@string/product_image_content_description"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:photoUrl="@{viewModel.product.imageUrl}"
+                app:placeholder="@{@drawable/product_image_blank}"
+                tools:src="@drawable/product_image_blank" />
+
+            <TextView
+                android:id="@+id/productName"
+                style="@style/labelText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/common_spacing"
+                android:ellipsize="end"
+                android:maxWidth="@dimen/max_title_size"
+                android:maxLines="1"
+                android:text="@{viewModel.product.name}"
+                app:layout_constraintStart_toEndOf="@id/productImage"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Product name" />
+
+            <TextView
+                android:id="@+id/priceLabel"
+                style="@style/moneyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/price_label"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/productName"
+                app:layout_constraintTop_toBottomOf="@id/productName"
+                tools:text="Preis:" />
+
+            <TextView
+                android:id="@+id/priceValue"
+                style="@style/moneyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:text="@{viewModel.product.price}"
+                app:layout_constraintBottom_toBottomOf="@id/priceLabel"
+                app:layout_constraintStart_toEndOf="@id/priceLabel"
+                tools:text="39.99 Eur" />
+
+            <TextView
+                android:id="@+id/releaseDate"
+                style="@style/dateText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:text="@{viewModel.product.releaseDate}"
+                app:layout_constraintBottom_toBottomOf="@id/productImage"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="31.12.2015" />
+
+            <!--TODO add stars rating-->
+
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="productImage,priceLabel" />
+
+            <TextView
+                android:id="@+id/productDescription"
+                style="@style/descriptionText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_spacing"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{viewModel.product.description}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/barrier"
+                tools:text="@string/loren_ipsum" />
+
+            <Button
+                android:id="@+id/addToFavorites"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_spacing"
+                android:text="@string/add_to_favorites"
+                android:textAllCaps="false"
+                app:layout_constraintTop_toBottomOf="@id/productDescription" />
+
+
+            <TextView
+                android:id="@+id/productLongDescription"
+                style="@style/descriptionText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_spacing"
+                android:text="@{viewModel.product.longDescription}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/addToFavorites"
+                tools:text="@string/loren_ipsum" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

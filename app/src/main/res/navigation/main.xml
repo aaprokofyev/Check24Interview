@@ -17,8 +17,7 @@
         android:name="de.check24.devtest.ui.productdetails.ProductDetailsFragment"
         android:label="@string/product_details">
         <argument
-            android:name="productId"
-            android:defaultValue=""
-            app:argType="string" />
+            android:name="product"
+            app:argType="de.check24.devtest.domain.model.Product" />
     </fragment>
 </navigation>

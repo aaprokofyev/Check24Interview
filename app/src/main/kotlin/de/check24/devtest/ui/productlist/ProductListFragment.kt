@@ -11,6 +11,7 @@ import de.check24.devtest.R
 import de.check24.devtest.databinding.FragmentProductListBinding
 import de.check24.devtest.di.AppInjector
 import de.check24.devtest.di.Injectable
+import de.check24.devtest.domain.model.Product
 import de.check24.devtest.ui.BaseFragment
 import de.check24.devtest.ui.action.ProductActionListener
 import de.check24.devtest.ui.adapter.ProductListAdapter
@@ -35,10 +36,10 @@ class ProductListFragment : BaseFragment(), Injectable {
         binding.lifecycleOwner = viewLifecycleOwner
 
         binding.list.adapter = ProductListAdapter(object : ProductActionListener {
-            override fun viewProductDetails(productId: String) {
+            override fun viewProductDetails(product: Product) {
                 findNavController().navigate(
                     ProductListFragmentDirections.viewProductDetails(
-                        productId = productId
+                        product = product
                     )
                 )
             }

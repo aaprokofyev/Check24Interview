@@ -14,7 +14,7 @@ class ProductViewHolder(
 
     init {
         binding.root.setOnClickListener {
-            product?.let { listener.viewProductDetails(productId = it.id.toString()) }
+            product?.let { listener.viewProductDetails(product = it) }
         }
     }
 

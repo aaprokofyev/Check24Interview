@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.navArgs
 import de.check24.devtest.databinding.FragmentProductDetailsBinding
 import de.check24.devtest.di.AppInjector
 import de.check24.devtest.di.Injectable
@@ -19,6 +20,8 @@ class ProductDetailsFragment : BaseFragment(), Injectable {
         ViewModelProvider(this, viewModelFactory)[ProductDetailsViewModel::class.java]
     }
 
+    private val params by navArgs<ProductDetailsFragmentArgs>()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,6 +29,8 @@ class ProductDetailsFragment : BaseFragment(), Injectable {
         val binding = FragmentProductDetailsBinding.inflate(inflater)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
+
+        viewModel.setProduct(params.product)
 
         return binding.root
     }
