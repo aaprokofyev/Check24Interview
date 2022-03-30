@@ -3,11 +3,18 @@ package de.check24.devtest.data.mapper
 import de.check24.devtest.data.net.model.ProductData
 import de.check24.devtest.data.net.model.ProductResponse
 import de.check24.devtest.domain.model.Product
+import de.check24.devtest.domain.model.ProductListMetadata
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.math.round
 
 fun ProductResponse.toProductList(): List<Product> = products.map { it.toProduct() }
+
+fun ProductResponse.toProductListMeta(): ProductListMetadata =
+    ProductListMetadata(
+        title = header.headerTitle,
+        subtitle = header.headerDescription,
+        filters = filters
+    )
 
 fun ProductData.toProduct() =
     Product(

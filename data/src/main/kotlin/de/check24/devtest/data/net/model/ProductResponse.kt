@@ -6,7 +6,7 @@ data class ProductResponse(
     @SerializedName("header")
     val header: HeaderData,
     @SerializedName("filters")
-    val filter: List<String>,
+    val filters: List<String>,
     @SerializedName("products")
     val products: List<ProductData>
 )

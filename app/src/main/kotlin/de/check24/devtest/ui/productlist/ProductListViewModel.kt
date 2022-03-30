@@ -2,6 +2,7 @@ package de.check24.devtest.ui.productlist
 
 import androidx.lifecycle.*
 import de.check24.devtest.domain.interactor.GetProductList
+import de.check24.devtest.domain.interactor.ProductListData
 import de.check24.devtest.domain.model.Product
 import kotlinx.coroutines.launch
 import java.lang.Exception
@@ -11,8 +12,8 @@ class ProductListViewModel @Inject constructor(
     private val getProductList: GetProductList
 ) : ViewModel() {
 
-    private val _products = MutableLiveData<List<Product>>(emptyList())
-    val products: LiveData<List<Product>>
+    private val _products = MutableLiveData<ProductListData>()
+    val products: LiveData<ProductListData>
         get() = _products
 
     private val _loadError = MutableLiveData(false)

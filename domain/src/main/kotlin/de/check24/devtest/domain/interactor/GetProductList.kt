@@ -6,7 +6,12 @@ import javax.inject.Inject
 
 class GetProductList @Inject constructor(
     private val productsRepository: ProductsRepository
-) : UseCase<Unit, List<Product>>() {
+) : UseCase<Unit, ProductListData>() {
     override suspend fun performAction(param: Unit) =
         productsRepository.getProductList()
 }
+
+data class ProductListData(
+    val products: List<Product>,
+    val productListMeta: ProductListMetadata
+)
