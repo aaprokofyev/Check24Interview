@@ -3,6 +3,10 @@ package de.check24.devtest.data.net.model
 import com.google.gson.annotations.SerializedName
 
 data class ProductResponse(
+    @SerializedName("header")
+    val header: HeaderData,
+    @SerializedName("filters")
+    val filter: List<String>,
     @SerializedName("products")
     val products: List<ProductData>
 )
@@ -33,4 +37,11 @@ data class PriceData(
     val value: String,
     @SerializedName("currency")
     val currency: String
+)
+
+data class HeaderData(
+    @SerializedName("headerTitle")
+    val headerTitle: String,
+    @SerializedName("headerDescription")
+    val headerDescription: String
 )

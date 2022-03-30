@@ -29,7 +29,7 @@
                 android:background="@color/lightGreyBackground"
                 android:contentDescription="@string/product_image_content_description"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:photoUrl="@{product.imageUrl}"
                 app:placeholder="@{@drawable/product_image_blank}"
@@ -40,12 +40,11 @@
                 style="@style/labelText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/common_spacing"
                 android:ellipsize="end"
                 android:maxWidth="@dimen/max_title_size"
                 android:maxLines="1"
                 android:text="@{product.name}"
-                app:layout_constraintStart_toEndOf="@id/productImage"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Product name" />
 
@@ -55,59 +54,27 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/element_spacing"
+                android:layout_marginEnd="@dimen/common_spacing"
                 android:ellipsize="end"
                 android:maxLines="2"
                 android:text="@{product.description}"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/productImage"
                 app:layout_constraintStart_toStartOf="@id/productName"
                 app:layout_constraintTop_toBottomOf="@id/productName"
                 tools:text="@string/loren_ipsum" />
-
-            <TextView
-                android:id="@+id/priceLabel"
-                style="@style/moneyText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/element_spacing"
-                android:text="@string/price_label"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/productName"
-                app:layout_constraintTop_toBottomOf="@id/productDescription"
-                tools:text="Preis:" />
-
-            <TextView
-                android:id="@+id/priceValue"
-                style="@style/moneyText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/element_spacing"
-                android:text="@{product.price}"
-                app:layout_constraintBottom_toBottomOf="@id/priceLabel"
-                app:layout_constraintStart_toEndOf="@id/priceLabel"
-                tools:text="39.99 Eur" />
-
-
-            <TextView
-                android:id="@+id/releaseDate"
-                style="@style/dateText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{product.releaseDate}"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="31.12.2015" />
 
             <RatingBar
                 android:id="@+id/ratingBar"
                 style="?android:attr/ratingBarStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/element_spacing"
                 android:numStars="5"
                 android:rating="@{product.rating}"
                 android:stepSize="0.5"
                 android:theme="@style/ratingBarStyle"
-                app:layout_constraintBottom_toBottomOf="@id/priceValue"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/productDescription"
+                app:layout_constraintTop_toBottomOf="@id/productDescription"
                 tools:rating="3.5" />
 
             <!--TODO add star rating with include/merge-->
