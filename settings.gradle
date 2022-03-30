@@ -1,0 +1,4 @@
+rootProject.name='Check24Interview'
+include ':app'
+include ':data'
+include ':domain'

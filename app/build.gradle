@@ -1,0 +1,71 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
+
+android {
+    compileSdkVersion rootProject.ext.androidCompileSdkVersion
+    buildToolsVersion rootProject.ext.androidBuildToolsVersion
+    dataBinding {
+        enabled = true
+    }
+
+    defaultConfig {
+        applicationId "de.check24.devtest"
+        minSdkVersion rootProject.ext.androidMinSdkVersion
+        targetSdkVersion rootProject.ext.androidTargetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+    def presentationDependencies = rootProject.ext.presentationDependencies
+    def presentationTestDependencies = rootProject.ext.presentationTestDependencies
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':domain')
+    implementation project(path: ':data')
+    implementation presentationDependencies.kotlinStdLibJDK7
+    implementation presentationDependencies.appCompat
+    implementation presentationDependencies.material
+    implementation presentationDependencies.coreKtx
+    implementation presentationDependencies.constraintLayout
+    implementation presentationDependencies.dagger
+    implementation presentationDependencies.daggerAndroid
+    implementation presentationDependencies.daggerAndroidSupport
+    implementation presentationDependencies.lifecycleViewModel
+    implementation presentationDependencies.navigationFragment
+    implementation presentationDependencies.navigationFragmentKtx
+    implementation presentationDependencies.navigationUi
+    implementation presentationDependencies.kotlinxCoroutinesAndroid
+    implementation presentationDependencies.kotlinxCoroutinesCore
+    implementation presentationDependencies.liveData
+    implementation presentationDependencies.javaxInject
+    implementation presentationDependencies.retrofit
+    implementation presentationDependencies.retrofitGsonConverter
+    implementation presentationDependencies.okhttpLoggingInterceptor
+    implementation presentationDependencies.glide
+
+    kapt presentationDependencies.glideCompiler
+    kapt presentationDependencies.daggerCompiler
+    kapt presentationDependencies.daggerCompilerAndroidSupport
+
+    testImplementation presentationTestDependencies.junit
+}

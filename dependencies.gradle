@@ -1,0 +1,98 @@
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+subprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+
+ext {
+    kotlinVersion = '1.6.10'
+    gradleVersion = '7.1.2'
+    //Android
+    androidBuildToolsVersion = "30.0.3"
+    androidMinSdkVersion = 26
+    androidTargetSdkVersion = 31
+    androidCompileSdkVersion = 31
+
+    //Libraries
+    supportLibraryVersion = '1.4.1'
+    materialVersion = '1.5.0'
+    coreKtxVersion = '1.7.0'
+    constraintLayoutVersion = '2.1.3'
+    daggerVersion = '2.41'
+    gsonVersion = '2.8.9'
+    lifecycleVersion = '2.4.0'
+    navigationVersion = '2.4.1'
+    kotlinCoroutinesVersion = '1.6.0'
+    javaxInjectVersion = '1'
+    retrofitVersion = '2.9.0'
+    okhttpVersion = '5.0.0-alpha.3'
+    glideVersion = '4.12.0'
+
+    //Testing
+    jUnitVersion = '4.12'
+    coreTestingVersion = '2.1.0'
+    mockitoVersion = '4.0.0'
+
+    presentationDependencies = [
+            appCompat                   : "androidx.appcompat:appcompat:$supportLibraryVersion",
+            dagger                      : "com.google.dagger:dagger:$daggerVersion",
+            daggerCompiler              : "com.google.dagger:dagger-compiler:$daggerVersion",
+            daggerCompilerAndroidSupport: "com.google.dagger:dagger-android-processor:$daggerVersion",
+            daggerAndroid               : "com.google.dagger:dagger-android:$daggerVersion",
+            daggerAndroidSupport        : "com.google.dagger:dagger-android-support:$daggerVersion",
+            material                    : "com.google.android.material:material:$materialVersion",
+            coreKtx                     : "androidx.core:core-ktx:$coreKtxVersion",
+            kotlinStdLibJDK7            : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion",
+            constraintLayout            : "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
+            lifecycleViewModel          : "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion",
+            navigationFragment          : "androidx.navigation:navigation-fragment:$navigationVersion",
+            navigationFragmentKtx       : "androidx.navigation:navigation-fragment-ktx:$navigationVersion",
+            navigationUi                : "androidx.navigation:navigation-ui-ktx:$navigationVersion",
+            kotlinxCoroutinesAndroid    : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutinesVersion",
+            kotlinxCoroutinesCore       : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion",
+            liveData                    : "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion",
+            javaxInject                 : "javax.inject:javax.inject:$javaxInjectVersion",
+            retrofit                    : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofitGsonConverter       : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            okhttpLoggingInterceptor    : "com.squareup.okhttp3:logging-interceptor:$okhttpVersion",
+            glide                       : "com.github.bumptech.glide:glide:$glideVersion",
+            glideCompiler               : "com.github.bumptech.glide:compiler:$glideVersion"
+    ]
+    presentationTestDependencies = [
+            junit: "junit:junit:$jUnitVersion"
+    ]
+
+    domainDependencies = [
+            kotlinStdLibJDK7     : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion",
+            kotlinxCoroutinesCore: "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion",
+            liveData             : "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion",
+            javaxInject          : "javax.inject:javax.inject:$javaxInjectVersion",
+    ]
+
+    domainTestDependencies = [
+            junit      : "junit:junit:$jUnitVersion",
+            coreTesting: "androidx.arch.core:core-testing:$coreTestingVersion",
+            kotlinTest : "org.jetbrains.kotlin:kotlin-test:$kotlinVersion",
+            mockito    : "org.mockito.kotlin:mockito-kotlin:$mockitoVersion"
+    ]
+    dataDependencies = [
+            kotlinStdLibJDK7     : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion",
+            kotlinxCoroutinesCore: "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion",
+            liveData             : "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion",
+            javaxInject          : "javax.inject:javax.inject:$javaxInjectVersion",
+            gson                 : "com.google.code.gson:gson:$gsonVersion",
+            retrofit             : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            okhttp               : "com.squareup.okhttp3:okhttp:$okhttpVersion"
+    ]
+
+
+    dataTestDependencies = [
+    ]
+}
